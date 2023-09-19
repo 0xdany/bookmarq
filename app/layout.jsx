@@ -1,18 +1,18 @@
 import "@styles/globals.css";
 
 import Nav from "@components/Nav";
-import Provider from "@components/Provider";
+import Providers from "@components/Providers";
 
 export const metadata = {
-  title: "Promptown",
-  description: "Get to know the best promts around the net",
+  title: "Bookmarq",
+  description: "Get to know the best spots around the net",
 };
 
 const Rootlayout = ({ children }) => {
   return (
     <html lang="en">
       <body>
-        <Provider>
+        <Providers>
           <div className="main">
             <div className="gradient" />
           </div>
@@ -21,7 +21,7 @@ const Rootlayout = ({ children }) => {
             <Nav />
             {children}
           </main>
-        </Provider>
+        </Providers>
       </body>
     </html>
   );

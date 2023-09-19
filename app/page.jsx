@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <section className="w-full flex-center flex-col gap-5">
       <h1 className="head_text orange_gradient text-center font-bold gap-7">
-        Dude, have you tried
+        Whats that website again?
       </h1>
 
       <div className="text-center text-6xl font-bold relative z-50 w-auto h-auto">
@@ -21,9 +21,9 @@ const Home = () => {
       </div>
 
       <span className="  text-center text-5xl font-bold">
-        <span className="green_gradient">Discover </span>
-        <span className="orange_gradient"> people's favorite </span>
-        <span className="green_gradient">spots in the web</span>
+        <span className="green_gradient">Get to know </span>
+        <span className="orange_gradient"> the best spots </span>
+        <span className="green_gradient">around the net</span>
       </span>
 
       <p className="desc text-center">

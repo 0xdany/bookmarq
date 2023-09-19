@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import { Button } from "@nextui-org/react";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -35,13 +36,24 @@ const Nav = () => {
       <div className="sm:flex hidden">
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
-            <Link href="/create-prompt" className="black_btn">
-              Create Post
+            <Link href="/create-prompt">
+              <Button
+                color="primary"
+                variant="shadow"
+                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-800 hover:to-cyan-700 "
+              >
+                Create Post
+              </Button>
             </Link>
 
-            <button type="button" onClick={signOut} className="outline_btn">
+            <Button
+              color="default"
+              variant="ghost"
+              onClick={signOut}
+              className="bg-gradient-to-r hover:from-red-400 hover:to-orange-400 hover:text-white"
+            >
               Sign Out
-            </button>
+            </Button>
 
             <Link href="/profile">
               <Image
@@ -57,14 +69,14 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type="button"
+                <Button
+                  variant="shadow"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="black_btn"
+                  className="bg-gradient-to-r from-amber-400 to-orange-500 text-base hover:from-amber-500 hover:to-orange-600 text-white"
                 >
-                  Sign In
-                </button>
+                  Sign in
+                </Button>
               ))}
           </>
         )}
@@ -99,16 +111,14 @@ const Nav = () => {
                 >
                   Create Prompt
                 </Link>
-                <button
-                  type="button"
-                  className="mt-2  b bgv vbv    w-full black_btn"
-                  onClick={() => {
-                    setToggleDropdown(false);
-                    signOut();
-                  }}
+                <Button
+                  color="default"
+                  variant="ghost"
+                  onClick={signOut}
+                  className="bg-gradient-to-r hover:from-red-400 hover:to-orange-400 hover:text-white"
                 >
                   Sign Out
-                </button>
+                </Button>
               </div>
             )}
           </div>
@@ -116,14 +126,14 @@ const Nav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type="button"
+                <Button
+                  variant="shadow"
                   key={provider.name}
                   onClick={() => signIn(provider.id)}
-                  className="black_btn"
+                  className="bg-gradient-to-r from-amber-400 to-orange-500 text-base hover:from-amber-500 hover:to-orange-600 text-white"
                 >
-                  Sign In
-                </button>
+                  Sign in
+                </Button>
               ))}
           </>
         )}
