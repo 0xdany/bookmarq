@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <section className="w-full flex-center flex-col gap-5">
       <h1 className="head_text orange_gradient text-center font-bold gap-7">
-        Whats that website again?
+        What's that website again?
       </h1>
 
       <div className="text-center text-6xl font-bold relative z-50 w-auto h-auto">

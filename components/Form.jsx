@@ -1,6 +1,10 @@
+import { set } from "mongoose";
 import Link from "next/link";
+import { useState } from "react";
+import { TagsInput } from "react-tag-input-component";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
+  const [tags, setTags] = useState([]);
   return (
     <section className="w-full max-w-full flex-start flex-col">
       <h1 className="head_text text-left">
@@ -45,12 +49,15 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
             Tag <span className="font-normal">(#aaa, #bbb, #ccc)</span>
           </span>
 
-          <input
+          <TagsInput
             value={post.tag}
-            onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            placeholder="#tag"
-            required
-            className="form_input"
+            onChange={(e) => {
+              setPost({ ...post, tag: e });
+              console.log(e);
+            }}
+            name="tags"
+            placeHolder="tags"
+            separators={[",", " ", "Enter"]}
           />
         </label>
 

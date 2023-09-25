@@ -10,7 +10,7 @@ const UpdatePost = () => {
   const searchParams = useSearchParams();
   const postId = searchParams.get("id");
 
-  const [post, setPost] = useState({ url: "", desc: "", tag: "" });
+  const [post, setPost] = useState({ url: "", desc: "", tag: [] });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {

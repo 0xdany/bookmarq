@@ -19,8 +19,10 @@ const ProfilePage = () => {
       setPosts(data);
     };
 
-    if (session?.user.id) fetchPosts();
-  }, []);
+    if (session?.user.id) {
+      fetchPosts();
+    }
+  }, [session?.user.id]);
 
   const handleEdit = (post) => {
     router.push(`/update-prompt?id=${post._id}`);
@@ -46,7 +48,7 @@ const ProfilePage = () => {
 
   return (
     <Profile
-      name="My"
+      name={session?.user.name + " -" || "Please sign in to view"}
       desc="Welcome to personalized profile page"
       data={posts}
       handleEdit={handleEdit}

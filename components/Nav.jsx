@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
-import { Button } from "@nextui-org/react";
+import { Button, Tooltip } from "@nextui-org/react";
 
 const Nav = () => {
   const { data: session } = useSession();
@@ -37,46 +37,69 @@ const Nav = () => {
         {session?.user ? (
           <div className="flex gap-3 md:gap-5">
             <Link href="/create-prompt">
-              <Button
-                color="primary"
-                variant="shadow"
-                className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-800 hover:to-cyan-700 "
+              <Tooltip
+                content="Ethernalize your favourite links"
+                showArrow
+                closeDelay={0}
               >
-                Create Post
-              </Button>
+                <Button
+                  color="primary"
+                  variant="shadow"
+                  className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-800 hover:to-cyan-700 "
+                >
+                  Create Post
+                </Button>
+              </Tooltip>
             </Link>
-
-            <Button
-              color="default"
-              variant="ghost"
-              onClick={signOut}
-              className="bg-gradient-to-r hover:from-red-400 hover:to-orange-400 hover:text-white"
+            <Tooltip
+              content="Sign out of this account"
+              showArrow
+              closeDelay={0}
             >
-              Sign Out
-            </Button>
+              <Button
+                color="default"
+                variant="ghost"
+                onClick={signOut}
+                className="bg-gradient-to-r hover:from-red-400 hover:to-orange-400 hover:text-white"
+              >
+                Sign Out
+              </Button>
+            </Tooltip>
 
             <Link href="/profile">
-              <Image
-                src={session.user.image}
-                alt="Profile"
-                width={37}
-                height={37}
-                className="rounded-full"
-              />
+              <Tooltip
+                content="Go to your profile page and do awesome things"
+                showArrow
+                closeDelay={0}
+              >
+                <Image
+                  src={session.user.image}
+                  alt="Profile"
+                  width={37}
+                  height={37}
+                  className="rounded-full"
+                />
+              </Tooltip>
             </Link>
           </div>
         ) : (
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <Button
-                  variant="shadow"
-                  key={provider.name}
-                  onClick={() => signIn(provider.id)}
-                  className="bg-gradient-to-r from-amber-400 to-orange-500 text-base hover:from-amber-500 hover:to-orange-600 text-white"
+                <Tooltip
+                  content="Sign in with Google Account"
+                  showArrow
+                  closeDelay={0}
                 >
-                  Sign in
-                </Button>
+                  <Button
+                    variant="shadow"
+                    key={provider.name}
+                    onClick={() => signIn(provider.id)}
+                    className="bg-gradient-to-r from-amber-400 to-orange-500 text-base hover:from-amber-500 hover:to-orange-600 text-white"
+                  >
+                    Sign in
+                  </Button>
+                </Tooltip>
               ))}
           </>
         )}

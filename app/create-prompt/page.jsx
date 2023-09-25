@@ -14,7 +14,7 @@ const CreatePost = () => {
   const [post, setPost] = useState({
     url: "",
     desc: "",
-    tag: "",
+    tag: [""],
   });
 
   const createpost = async (e) => {
