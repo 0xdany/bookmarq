@@ -136,7 +136,7 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg blue_gradient grdient_text tracking-wide;
+  @apply max-sm:hidden font-satoshi font-semibold text-lg blue_gradient tracking-wide;
 }
 
 .dropdown {
